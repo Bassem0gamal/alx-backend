@@ -14,12 +14,14 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """ Add an item in the cache """
-        if key and item:
-            if len(self.cache_data) >= self.MAX_ITEMS \
-                    and key not in self.cache_data:
-                discard = list(self.cache_data.keys())[0]
-                self.cache_data.pop(discard)
-                print("DISCARD: {}".format(discard))
+        if key is None or item is None:
+            return
+
+        if len(self.cache_data) >= self.MAX_ITEMS \
+                and key not in self.cache_data:
+            discard = list(self.cache_data.keys())[0]
+            self.cache_data.pop(discard)
+            print("DISCARD: {}".format(discard))
 
         if key in self.cache_data:
             self.cache_data.pop(key)
