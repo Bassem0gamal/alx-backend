@@ -20,7 +20,7 @@ class LRUCache(BaseCaching):
                 discard = list(self.cache_data.keys())[0]
                 self.cache_data.pop(discard)
                 print("DISCARD: {}".format(discard))
-            
+
         if key in self.cache_data:
             self.cache_data.pop(key)
 
